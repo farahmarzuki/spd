@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','PortalController@home');
+// User Route
+Route::get('/user','UserController@index');
+Route::get('/user/login','UserController@login')->name('user.login');
+Route::get('/user/register','UserController@register')->name('user.register');
+
+
+
