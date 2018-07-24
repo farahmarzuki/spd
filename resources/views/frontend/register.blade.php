@@ -1,12 +1,10 @@
  @extends('frontend.layout')
    @section('content')
 
-    <!-- Page Content -->
-    <br>
-    <br>
-    <p align="center">Register New User</p>
+    <!-- Page Content --> 
     <section class="py-5">
       <div class="container">
+      	<h1>Register New User<br></h1><br>
       	<form>
       	  <div class="form-group row">
       	    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
@@ -23,7 +21,7 @@
       	  <div class="form-group row">
       	    <label for="inputPassword3" class="col-sm-2 col-form-label">IC no</label>
       	    <div class="col-sm-10">
-      	      <input text="icno" input type="icno" class="form-control" id="inputPassword3" placeholder="121212-12-1232">
+      	      <input text="icno" input type="icno" class="form-control" id="inputPassword3" placeholder="IC No without dash (-)">
       	    </div>
       	  </div>
       	  <div class="form-group row">

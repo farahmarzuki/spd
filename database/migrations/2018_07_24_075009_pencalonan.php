@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Sesi extends Migration
+class Pencalonan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class Sesi extends Migration
      */
     public function up()
     {
-         Schema::create('sesi',function (Blueprint $table){
+         Schema::create('pencalonan', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('start');
-            $table->date('end');
+            $table->integer('calon_id');
+            $table->integer('sesi_id');
+            $table->integer('user_id');
+            $table->string('asas');
+            $table->string('ulasan');
             $table->timestamps();
             $table->softDeletes();
         });
