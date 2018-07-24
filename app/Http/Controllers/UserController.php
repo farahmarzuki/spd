@@ -11,6 +11,9 @@ class UserController extends Controller //controller tu parents UserController t
     }
 
     public function login() {
-    	return view('frontend.login');
+    		return view('frontend.login');
+    }
+    public function register() {
+    		return view('frontend.register');
     }
 }
