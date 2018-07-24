@@ -11,6 +11,6 @@ class UserController extends Controller //controller tu parents UserController t
     }
 
     public function login() {
-
+    	return view('frontend.login');
     }
 }
