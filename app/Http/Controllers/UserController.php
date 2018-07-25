@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class UserController extends Controller //controller tu parents UserController tu anak
 {
@@ -18,7 +19,7 @@ class UserController extends Controller //controller tu parents UserController t
     		return view('frontend.register');
     }
 
-    public function registerPost(Request $request){
+    public function registerPost(Request $request){ //requst sbb ada form
     	$request->validate([
     		'name' =>'required',
     		'email' =>'required|email|unique:users',
@@ -37,5 +38,31 @@ class UserController extends Controller //controller tu parents UserController t
     	$user->save();
 
     	return back()->with('success','Data anda dah masuk'); // with tu mcm session dia pegang sbb nak back balik
+    }
+
+    public function loginPost(Request $request){
+    	$request->validate([
+    		'email'=>'required',
+    		'password'=>'required',
+    	]);
+
+    	 $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->route('user.dashboard');
+        } else {
+        	return back()->withError('Login failed.');
+        }
+    }
+
+    public function dashboard() {
+    	return view('backend.index');
+    }
+
+    public function logout(){
+    	Auth::logout();
+
+    	return redirect()->route('home')->withSuccess('Logout Success');
     }
 }
