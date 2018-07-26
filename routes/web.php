@@ -17,9 +17,16 @@ Route::get('/user','UserController@index');
 Route::get('/user/login','UserController@login')->name('user.login');
 Route::get('/logout','UserController@logout')->name('user.logout');
 Route::post('/user/login','UserController@loginPost')->name('user.login.post');
-Route::get('/user/dashboard','UserController@dashboard')->name('user.dashboard');
 Route::get('/user/register','UserController@register')->name('user.register');
 Route::post('/user/register','UserController@registerPost')->name('user.register.post');
+
+//Authentication Link
+
+Route::middleware(['auth'])->group(function(){
+
+Route::get('/user/dashboard','UserController@dashboard')->name('user.dashboard');
+	Route::resource('sesi','SesiController');
+});
 
 
 
