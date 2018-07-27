@@ -44,8 +44,12 @@
             @endguest
             @auth
             <li class="nav-item">
+              <a class="nav-link" href="{{route('user.dashboard')}}">Dashboard</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{route('user.logout')}}">Logout as {{title_case(Auth::user()->name)}}</a>
             </li>
+            
             @endauth
           </ul>
         </div>

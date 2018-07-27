@@ -15,6 +15,7 @@ Route::get('/','PortalController@home')->name('home');
 // User Route
 Route::get('/user','UserController@index');
 Route::get('/user/login','UserController@login')->name('user.login');
+Route::get('/user/dashboard','UserController@dashboard')->name('user.dashboard');
 Route::get('/logout','UserController@logout')->name('user.logout');
 Route::post('/user/login','UserController@loginPost')->name('user.login.post');
 Route::get('/user/register','UserController@register')->name('user.register');
@@ -25,7 +26,10 @@ Route::post('/user/register','UserController@registerPost')->name('user.register
 Route::middleware(['auth'])->group(function(){
 
 Route::get('/user/dashboard','UserController@dashboard')->name('user.dashboard');
-	Route::resource('sesi','SesiController');
+
+	Route::resource('pencalonan', 'PencalonanController');
+	Route::resource('sesi', 'SesiController')->middleware('role:admin');
+
 });
 
 

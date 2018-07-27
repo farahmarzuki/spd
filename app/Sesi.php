@@ -14,4 +14,11 @@ class Sesi extends Model
     //yang ni yang lalu form
     //protected $fillable = ['name','status','pingat']
 
+
+    //Accessor
+
+    public function getCreatedAtFormatAttribute($value){
+    	return $this->created_at->format('d M Y');
+    }
+
 }

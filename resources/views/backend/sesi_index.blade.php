@@ -27,9 +27,16 @@
               <td> {{$sesi->status ? 'Open': 'Close'}}</td> 
               <td> {{$sesi->pingat}}</td>
               <td> {{$sesi->created_at->format('d M Y')}}</td>
-              <td> {{$sesi->updated_at-> format('d M Y')}}</td>
+              <td> {{$sesi->updated_at->format('d M Y')}}</td>
               <td>
                 <a href="{{route('sesi.edit', $sesi->id)}}">Edit</a>
+                <form method="POST" action="{{route('sesi.destroy', $sesi->id)}}"
+                  style="display: inline;">
+                  @csrf
+                  @method('DELETE')
+                  <input typle="submit" class="btn btn-link" value="Delete" 
+                  onclick="return confirm('confirm Delete?')">
+                </form>
               </td>
             </tr>
             @endforeach

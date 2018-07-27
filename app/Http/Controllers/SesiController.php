@@ -97,6 +97,8 @@ class SesiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Sesi::destroy($id);
+
+        return back()->withSuccess('Successfully Delete');
     }
 }
